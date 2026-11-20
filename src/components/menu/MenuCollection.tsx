@@ -9,116 +9,8 @@ import {
   Sparkles, ArrowRight, Pizza, X
 } from "lucide-react";
 
-const pizzas = [
-  {
-    id: "margherita",
-    name: "Classic Margherita",
-    category: "Classic",
-    location: "Dhanmondi",
-    price: 450,
-    rating: 4.9,
-    reviews: 128,
-    description: "Fresh mozzarella, basil and rich tomato sauce.",
-    image: "https://image.resy.com/3/003/2/65379/53ae8c3a9316ba78c20d00f63a9966084f667f97/jpg/1%3A1/1600",
-    tag: "Bestseller"
-  },
-  {
-    id: "pepperoni",
-    name: "Pepperoni Feast",
-    category: "Classic",
-    location: "Uttara",
-    price: 650,
-    rating: 4.8,
-    reviews: 96,
-    description: "Loaded with pepperoni, mozzarella and signature sauce.",
-    image: "https://d1w7312wesee68.cloudfront.net/vvvtJ2hGkdvmQfUaFPIlz-hcWBtyg3OK5_MRUquaQhI/ext%3Awebp/quality%3A85/plain/s3%3A/toast-sites-resources-prod/restaurantImages/c90a4294-d114-4119-9d56-a7d531ae8065/BlueMoonStudio7982.jpg",
-    tag: "Popular"
-  },
-  {
-    id: "bbq-chicken",
-    name: "BBQ Chicken",
-    category: "Chicken",
-    location: "Dhanmondi",
-    price: 590,
-    rating: 4.9,
-    reviews: 84,
-    description: "Smoky BBQ chicken, onions and melted cheese.",
-    image: "https://static.manjarfoodpark.menu/product/gos-pizza/pizza-bbq-chicken.jpg",
-    tag: "Chef's Choice"
-  },
-  {
-    id: "four-cheese",
-    name: "Four Cheese",
-    category: "Cheese",
-    location: "Gulshan",
-    price: 720,
-    rating: 4.7,
-    reviews: 72,
-    description: "A rich combination of four delicious cheeses.",
-    image: "https://www.lactalisfoodservice.fr/app/uploads/2025/10/sans-titre-1-0000-shutterstock-2188344363-1200x1200.png",
-    tag: "Premium"
-  },
-  {
-    id: "veggie-delight",
-    name: "Veggie Delight",
-    category: "Veggie",
-    location: "Savar",
-    price: 490,
-    rating: 4.6,
-    reviews: 58,
-    description: "Colorful vegetables, olives and fresh mozzarella.",
-    image: "https://maincdn3.mnasaticdn.com/uploads/product_image/2733/product_01732015741_thumb.jpg",
-    tag: "Fresh Pick"
-  },
-  {
-    id: "spicy-chicken",
-    name: "Spicy Chicken",
-    category: "Chicken",
-    location: "Uttara",
-    price: 620,
-    rating: 4.8,
-    reviews: 91,
-    description: "Juicy chicken, jalapenos and a spicy signature sauce.",
-    image: "https://d2ova09jg8x3xk.cloudfront.net/bentleighpizzeria.com.au/uploads/Spicy_Chicken.jpg",
-    tag: "Spicy"
-  },
-  {
-    id: "seafood-special",
-    name: "Seafood Special",
-    category: "Seafood",
-    location: "Gulshan",
-    price: 850,
-    rating: 4.7,
-    reviews: 43,
-    description: "A delicious seafood combination with creamy cheese.",
-    image: "https://www.lagrollabz.it/newsite/images/pizze/Livello3.png",
-    tag: "Special"
-  },
-  {
-    id: "garden-fresh",
-    name: "Garden Fresh",
-    category: "Veggie",
-    location: "Savar",
-    price: 520,
-    rating: 4.6,
-    reviews: 39,
-    description: "Garden vegetables, herbs and a light cheese topping.",
-    image: "https://static.wixstatic.com/media/37ace1_f1050776479e4c4ca22409e32794b624~mv2.jpg/v1/fill/w_480%2Ch_534%2Cal_c%2Cq_80%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/37ace1_f1050776479e4c4ca22409e32794b624~mv2.jpg",
-    tag: "Vegetarian"
-  },
-  {
-    id: "cheese-burst",
-    name: "Cheese Burst Special",
-    category: "Special",
-    location: "Dhanmondi",
-    price: 780,
-    rating: 4.9,
-    reviews: 67,
-    description: "Extra cheesy, rich and made for cheese lovers.",
-    image: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy%2Cf_auto%2Cq_auto%2Cw_300%2Ch_300%2Ce_grayscale%2Cc_fit/FOOD_CATALOG/IMAGES/CMS/2026/1/7/49fc0b3e-4045-478b-8bbd-bc01e4ea8068_64661c75-07c6-4bca-8700-e7dd50fbcad2.jpg",
-    tag: "Cheese Lover"
-  }
-];
+import { pizzas } from "@/data/pizzas";
+import { useCart } from "@/components/providers/CartProvider";
 
 const categories = [
   "All Pizzas", "Classic", "Chicken", "Cheese",
@@ -134,7 +26,7 @@ export default function MenuCollection() {
   const [location, setLocation] = useState("All Locations");
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState("default");
-  const [cart, setCart] = useState<string[]>([]);
+  const { items, totalItems, addItem } = useCart();
   const [showFilters, setShowFilters] = useState(false);
 
   const filteredPizzas = useMemo(() => {
@@ -158,8 +50,13 @@ export default function MenuCollection() {
     return result;
   }, [category, location, search, sort]);
 
-  function addToCart(id: string) {
-    setCart((current) => current.includes(id) ? current : [...current, id]);
+  function addToCart(pizza: (typeof pizzas)[number]) {
+    addItem({
+      id: pizza.id,
+      name: pizza.name,
+      price: pizza.price,
+      image: pizza.image,
+    });
   }
 
   function clearFilters() {
@@ -235,7 +132,7 @@ export default function MenuCollection() {
             </div>
             <div className="menu-cart-counter">
               <ShoppingBag size={18} />
-              <span>{cart.length} Added</span>
+              <span>{totalItems} Added</span>
             </div>
           </div>
 
@@ -310,7 +207,7 @@ export default function MenuCollection() {
           {filteredPizzas.length > 0 ? (
             <motion.div layout className="menu-product-grid">
               {filteredPizzas.map((pizza, index) => {
-                const added = cart.includes(pizza.id);
+                const added = items.some((item) => item.id === pizza.id);
 
                 return (
                   <motion.article
@@ -350,11 +247,10 @@ export default function MenuCollection() {
                         <strong>৳ {pizza.price}</strong>
                         <button
                           className={added ? "menu-add-button added" : "menu-add-button"}
-                          onClick={() => addToCart(pizza.id)}
-                          disabled={added}
+                          onClick={() => addToCart(pizza)}
                         >
                           {added ? <Check size={16} /> : <Plus size={16} />}
-                          {added ? "Added" : "Add"}
+                          {added ? "Add More" : "Add"}
                         </button>
                       </div>
                     </div>
@@ -379,6 +275,10 @@ export default function MenuCollection() {
     </>
   );
 }
+
+
+
+
 
 
 

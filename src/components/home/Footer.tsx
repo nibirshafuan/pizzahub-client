@@ -1,4 +1,5 @@
-import Link from "next/link";
+﻿import Link from "next/link";
+import { connection } from "next/server";
 import {
   Globe,
   Camera,
@@ -116,7 +117,7 @@ export default function Footer() {
         </div>
 
         <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} PizzaHub. All rights reserved.</p>
+          <p>&copy; 2026 PizzaHub. All rights reserved.</p>
 
           <div className="footer-bottom-links">
             <Link href="#newsletter">Privacy</Link>
@@ -132,5 +133,7 @@ export default function Footer() {
     </footer>
   );
 }
+
+
 
 

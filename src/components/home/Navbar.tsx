@@ -11,15 +11,16 @@ import {
   Menu,
   X,
 } from "lucide-react";
+import { useCart } from "@/components/providers/CartProvider";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [search, setSearch] = useState("");
+  const { totalItems } = useCart();
 
   return (
     <header className="navbar">
       <div className="navbar-container">
-
         <Link href="/" className="navbar-logo">
           <span className="navbar-logo-icon">
             <Pizza size={32} />
@@ -52,7 +53,6 @@ export default function Navbar() {
         </nav>
 
         <div className="navbar-actions">
-
           <form
             className="navbar-search"
             onSubmit={(event) => event.preventDefault()}
@@ -67,9 +67,9 @@ export default function Navbar() {
             />
           </form>
 
-          <Link href="/cart" className="navbar-cart" aria-label="Shopping cart">
+          <Link href="/cart" className="navbar-cart" aria-label={`Shopping cart with ${totalItems} items`}>
             <ShoppingCart size={23} />
-            <span className="navbar-cart-count">0</span>
+            <span className="navbar-cart-count">{totalItems}</span>
           </Link>
 
           <Link href="/sign-in" className="navbar-profile">
@@ -78,7 +78,6 @@ export default function Navbar() {
             </span>
             <span>Sign In</span>
           </Link>
-
         </div>
 
         <button
@@ -89,7 +88,6 @@ export default function Navbar() {
         >
           {mobileOpen ? <X size={25} /> : <Menu size={25} />}
         </button>
-
       </div>
     </header>
   );
