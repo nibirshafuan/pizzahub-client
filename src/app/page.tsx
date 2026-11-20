@@ -5,6 +5,7 @@ import WhatsNewSection from "@/components/home/WhatsNewSection";
 import ExploreCategories from "@/components/home/ExploreCategories";
 import PopularPizzas from "@/components/home/PopularPizzas";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
+import CustomerReviews from "@/components/home/CustomerReviews";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <ExploreCategories />
       <PopularPizzas />
       <WhyChooseUs />
+      <CustomerReviews />
     </main>
   );
 }
