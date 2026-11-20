@@ -1,4 +1,4 @@
-@import "tailwindcss";
+﻿@import "tailwindcss";
 
 :root {
   --background: #f1f1f4;
@@ -1403,7 +1403,7 @@ input {
 }
 
 .hero-garnish-leaves::before {
-  content: "🌿";
+  content: "ðŸŒ¿";
   position: absolute;
   font-size: 68px;
   filter: drop-shadow(0 5px 5px rgba(30, 70, 20, 0.2));
@@ -1421,7 +1421,7 @@ input {
 }
 
 .hero-garnish-tomato::before {
-  content: "🍅";
+  content: "ðŸ…";
   position: absolute;
   font-size: 52px;
   filter: drop-shadow(0 6px 7px rgba(100, 30, 10, 0.2));
@@ -2651,26 +2651,238 @@ input {
   align-self: start;
 }
 
-.popular-product-card:last-child {
-  grid-column: 1 / -1;
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Why Choose PizzaHub */
+.why-section {
+  padding: 100px 0;
+  background: #fff8f1;
+  overflow: hidden;
 }
 
-
-
-.popular-product-card:last-child {
-  grid-column: auto;
+.why-container {
+  width: min(1160px, 90%);
+  margin: 0 auto;
 }
 
-@media (min-width: 651px) {
-  .popular-product-card:last-child .popular-product-image {
-    height: 160px;
+.why-heading {
+  max-width: 650px;
+  margin: 0 auto 48px;
+  text-align: center;
+}
+
+.why-eyebrow {
+  color: #ed6a2a;
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 2px;
+}
+
+.why-heading h2 {
+  margin: 12px 0;
+  color: #29231f;
+  font-size: clamp(32px, 4vw, 44px);
+  font-weight: 850;
+  letter-spacing: -1.5px;
+}
+
+.why-heading h2 span {
+  color: #ed6a2a;
+}
+
+.why-heading > p {
+  margin: 0;
+  color: #81766e;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.why-card {
+  position: relative;
+  min-width: 0;
+  padding: 27px 23px 25px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #f1e6dc;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(62, 39, 20, .035);
+  transition: box-shadow .35s ease, border-color .35s ease;
+}
+
+.why-card:hover {
+  border-color: #f3c5a9;
+  box-shadow: 0 16px 35px rgba(62, 39, 20, .08);
+}
+
+.why-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.why-card-number {
+  color: #c9b9ab;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.why-icon {
+  display: grid;
+  width: 58px;
+  height: 58px;
+  place-items: center;
+  color: #ed6a2a;
+  background: #fff0e5;
+  border-radius: 16px;
+}
+
+.why-card h3 {
+  margin: 0 0 10px;
+  color: #302720;
+  font-size: 18px;
+  font-weight: 850;
+}
+
+.why-card > p {
+  min-height: 66px;
+  margin: 0;
+  color: #81766e;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.why-card-line {
+  width: 38px;
+  height: 3px;
+  margin-top: 22px;
+  background: #ed6a2a;
+  border-radius: 10px;
+  transition: width .3s ease;
+}
+
+.why-card:hover .why-card-line {
+  width: 65px;
+}
+
+@media (max-width: 900px) {
+  .why-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 650px) {
+  .why-section {
+    padding: 65px 0;
+  }
+
+  .why-heading {
+    margin-bottom: 32px;
+  }
+
+  .why-grid {
+    gap: 13px;
+  }
+
+  .why-card {
+    padding: 19px 15px;
+  }
+
+  .why-card-top {
+    margin-bottom: 20px;
+  }
+
+  .why-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 13px;
+  }
+
+  .why-card h3 {
+    font-size: 15px;
+  }
+
+  .why-card > p {
+    min-height: 78px;
+    font-size: 11px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .why-card,
+  .why-card-line {
+    transition: none !important;
   }
 }
 
 
-
-.popular-product-card:last-child {
-  grid-column: 2;
+/* Premium Why Choose Background */
+.why-section {
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse at 8% 15%, rgba(255, 191, 139, .22), transparent 32%),
+    radial-gradient(ellipse at 92% 80%, rgba(255, 205, 163, .25), transparent 34%),
+    linear-gradient(135deg, #fffaf5 0%, #fff2e7 48%, #fff9f3 100%);
 }
 
+.why-section::before,
+.why-section::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: 50%;
+  filter: blur(2px);
+}
+
+.why-section::before {
+  width: 260px;
+  height: 260px;
+  top: 35px;
+  left: -125px;
+  border: 1px solid rgba(237, 106, 42, .12);
+  box-shadow:
+    0 0 0 28px rgba(237, 106, 42, .025),
+    0 0 0 58px rgba(237, 106, 42, .018);
+}
+
+.why-section::after {
+  width: 330px;
+  height: 330px;
+  right: -165px;
+  bottom: 5px;
+  border: 1px solid rgba(237, 106, 42, .12);
+  box-shadow:
+    0 0 0 30px rgba(237, 106, 42, .025),
+    0 0 0 65px rgba(237, 106, 42, .018);
+}
+
+.why-container {
+  position: relative;
+  z-index: 1;
+}
+
+.why-card {
+  background: rgba(255, 255, 255, .92);
+  backdrop-filter: blur(8px);
+}
 
