@@ -1,5 +1,11 @@
-﻿import { redirect } from "next/navigation";
+﻿import Navbar from "@/components/home/Navbar";
+import HeroSection from "@/components/home/HeroSection";
 
 export default function Home() {
-  redirect("/sign-in");
+  return (
+    <main>
+      <Navbar />
+      <HeroSection />
+    </main>
+  );
 }
