@@ -1,4 +1,4 @@
-@import "tailwindcss";
+﻿@import "tailwindcss";
 
 :root {
   --background: #f1f1f4;
@@ -1403,7 +1403,7 @@ input {
 }
 
 .hero-garnish-leaves::before {
-  content: "🌿";
+  content: "ðŸŒ¿";
   position: absolute;
   font-size: 68px;
   filter: drop-shadow(0 5px 5px rgba(30, 70, 20, 0.2));
@@ -1421,7 +1421,7 @@ input {
 }
 
 .hero-garnish-tomato::before {
-  content: "🍅";
+  content: "ðŸ…";
   position: absolute;
   font-size: 52px;
   filter: drop-shadow(0 6px 7px rgba(100, 30, 10, 0.2));
@@ -1652,5 +1652,346 @@ input {
     object-fit: contain;
     transform: none !important;
     animation: none !important;
+  }
+}
+
+
+
+/* =================================
+   PIZZAHUB ABOUT US
+================================= */
+
+.about-section {
+  padding: 105px 0;
+  background: #fffaf5;
+}
+
+.about-container {
+  width: min(1160px, 90%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 75px;
+}
+
+.about-photo {
+  position: relative;
+  min-height: 490px;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #f1e4d8;
+}
+
+.about-main-image {
+  object-fit: cover;
+  transition: transform .6s ease;
+}
+
+.about-photo:hover .about-main-image {
+  transform: scale(1.04);
+}
+
+.about-photo-caption {
+  position: absolute;
+  z-index: 2;
+  left: 22px;
+  right: 22px;
+  bottom: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 19px 22px;
+  color: #fff;
+  background: rgba(35, 25, 18, .72);
+  backdrop-filter: blur(8px);
+  border-radius: 8px;
+}
+
+.about-photo-caption span {
+  color: #ffb27e;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.about-photo-caption strong {
+  font-size: 17px;
+}
+
+.about-content {
+  padding: 15px 0;
+}
+
+.about-eyebrow {
+  color: #ed6a2a;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+}
+
+.about-content h2 {
+  margin: 16px 0 22px;
+  color: #29231f;
+  font-size: clamp(36px, 4vw, 51px);
+  font-weight: 850;
+  line-height: 1.13;
+  letter-spacing: -2px;
+}
+
+.about-content h2 span {
+  display: block;
+  color: #ed6a2a;
+}
+
+.about-description {
+  margin: 0 0 16px;
+  color: #796e65;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.about-feature-list {
+  display: grid;
+  gap: 14px;
+  margin: 27px 0 32px;
+}
+
+.about-feature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #40352e;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.about-feature > span {
+  width: 23px;
+  height: 23px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background: #ed6a2a;
+  border-radius: 50%;
+}
+
+.about-menu-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 23px;
+  color: #fff;
+  background: #ed6a2a;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background .2s ease, transform .2s ease;
+}
+
+.about-menu-button:hover {
+  background: #d95418;
+  transform: translateY(-2px);
+}
+
+/* =================================
+   PIZZAHUB WHAT'S NEW
+================================= */
+
+.whats-new-section {
+  padding: 85px 0 100px;
+  background: #fff;
+}
+
+.whats-new-container {
+  width: min(1160px, 90%);
+  margin: 0 auto;
+}
+
+.whats-new-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 25px;
+  margin-bottom: 35px;
+}
+
+.whats-new-heading h2 {
+  margin: 9px 0 8px;
+  color: #29231f;
+  font-size: clamp(32px, 4vw, 43px);
+  font-weight: 850;
+  letter-spacing: -1.5px;
+}
+
+.whats-new-heading p {
+  margin: 0;
+  color: #81766e;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.whats-new-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  color: #ed6a2a;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.whats-new-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px;
+}
+
+.whats-new-card {
+  overflow: hidden;
+  background: #fffaf5;
+  border: 1px solid #f0e8df;
+  border-radius: 10px;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.whats-new-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 35px rgba(45, 30, 15, .09);
+}
+
+.whats-new-image {
+  position: relative;
+  height: 225px;
+  overflow: hidden;
+  background: #f3e7dc;
+}
+
+.whats-new-image img {
+  object-fit: cover;
+  transition: transform .5s ease;
+}
+
+.whats-new-card:hover .whats-new-image img {
+  transform: scale(1.06);
+}
+
+.whats-new-card-content {
+  padding: 22px 21px 25px;
+}
+
+.whats-new-card-content > span {
+  color: #ed6a2a;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.whats-new-card-content h3 {
+  margin: 10px 0;
+  color: #302720;
+  font-size: 19px;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.whats-new-card-content p {
+  margin: 0;
+  color: #81766e;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+@media (max-width: 850px) {
+  .about-container {
+    gap: 35px;
+  }
+
+  .about-photo {
+    min-height: 420px;
+  }
+
+  .whats-new-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 650px) {
+  .about-section {
+    padding: 65px 0;
+  }
+
+  .about-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .about-photo {
+    min-height: 330px;
+  }
+
+  .about-content {
+    padding: 0;
+  }
+
+  .whats-new-section {
+    padding: 65px 0;
+  }
+
+  .whats-new-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .whats-new-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .whats-new-image {
+    height: 230px;
+  }
+}
+
+/* PREMIUM INTERACTION POLISH */
+
+.about-main-image {
+  transition: transform 0.8s cubic-bezier(.2, .7, .2, 1);
+}
+
+.about-photo:hover .about-main-image {
+  transform: scale(1.055);
+}
+
+.about-menu-button {
+  box-shadow: 0 8px 20px rgba(237, 106, 42, 0.18);
+}
+
+.about-menu-button:hover {
+  box-shadow: 0 12px 26px rgba(237, 106, 42, 0.28);
+}
+
+.whats-new-card {
+  will-change: transform;
+}
+
+.whats-new-image img {
+  transition: transform 0.8s cubic-bezier(.2, .7, .2, 1);
+}
+
+.whats-new-card:hover .whats-new-image img {
+  transform: scale(1.075);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-main-image,
+  .whats-new-image img,
+  .whats-new-card,
+  .about-menu-button {
+    transition: none !important;
   }
 }
